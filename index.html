@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Opps! something wrong with seminarsaito</title>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+#centerBox {
+    position: absolute;
+    width: 800px;
+    height: 200px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+}
+#mascot {
+    width: 300px;
+}
+label {
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+}
+#displayCompany {
+    font-size: 2rem;
+}
+#footer {
+    height: 20px;
+    display: block;
+    text-align: center;
+    bottom:0;
+}
+</style>
+</head>
+<div id="centerBox">
+        <img id="mascot" src="./LandingPage.gif" alt="Ticketo Man">
+        <br/>
+        <label>Something went wrong with company</label>
+        <br/>
+        <label id="displayCompany">[NULL]</label>
+        <br/>
+        <label>Please wait a moment for propagate your website. >__<" </label>     
+</div>
+<div id="footer">
+    <label id="timerCounter"></label>
+</div>
+<body>
+
+</body>
+<script>
+$( document ).ready(function() {
+    $("#displayCompany").text(this.location.host);
+
+    var counter = 5;
+    var interval = setInterval(function() {
+        counter--;
+        $("#timerCounter").text("Automatic reload in : " + counter + " second(s)");
+        if (counter == 0) {
+            clearInterval(interval);
+            window.location.reload(1);
+        }
+    }, 1000);
+});
+</script>
+</html>
